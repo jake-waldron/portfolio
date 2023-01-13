@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import React from 'react';
 import styled from 'styled-components';
+import { COLORS } from '../styles/constants';
 
 export default function Header() {
 	return (
@@ -27,8 +27,9 @@ export default function Header() {
 }
 
 const StyledNav = styled.nav`
-	background: #000;
-	color: #fff;
+	height: 100px;
+	background-color: ${COLORS.dark};
+	color: ${COLORS.light};
 	padding: 1rem;
 	display: flex;
 	justify-content: space-between;
@@ -36,7 +37,7 @@ const StyledNav = styled.nav`
 `;
 
 const StyledH2 = styled.h2`
-	color: #fff;
+	color: inherit;
 	margin-left: 100px;
 `;
 
@@ -52,13 +53,13 @@ const StyledUl = styled.ul`
 	}
 
 	a {
-		color: #fff;
+		color: inherit;
 		text-decoration: none;
 	}
 
 	a:hover {
 		/* text-decoration: underline; */
 		padding-bottom: 4px;
-		border-bottom: 4px solid #fff;
+		border-bottom: 4px solid ${COLORS.light};
 	}
 `;
