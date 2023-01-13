@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import About from '../components/About';
+import Hello from '../components/Hello';
 
 const Heading = styled.h1`
 	color: red;
@@ -7,7 +9,8 @@ const Heading = styled.h1`
 export default function Home() {
 	return (
 		<>
-			<Heading>This is the Index Page!</Heading>
+			<Hello />
+			<About />
 		</>
 	);
 }
