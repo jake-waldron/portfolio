@@ -8,17 +8,17 @@ export default function Header() {
 			<StyledNav>
 				<h2>Jake Waldron</h2>
 				<ul>
-					<li>
+					{/* <li>
 						<Link href="/">Home</Link>
-					</li>
+					</li> */}
 					<li>
 						<Link href="/#about">About</Link>
 					</li>
 					<li>
-						<Link href="/projects">Projects</Link>
+						<Link href="/#projects">Projects</Link>
 					</li>
 					<li>
-						<Link href="/contact">Contact</Link>
+						<Link href="/#contact">Contact</Link>
 					</li>
 				</ul>
 			</StyledNav>
@@ -57,7 +57,7 @@ const StyledNav = styled.nav`
 		justify-content: space-between;
 		align-items: center;
 		/* min-width: 500px; */
-		max-width: 50%;
+		max-width: 45%;
 		flex: 1;
 		/* max-width: 50%; */
 		margin-right: 8%;
