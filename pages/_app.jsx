@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }) {
 }
 
 const BodyWrapper = styled.main`
+	min-height: 100%;
 	max-width: 84%;
 	margin: 0 auto;
 `;

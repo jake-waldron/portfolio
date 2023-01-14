@@ -30,10 +30,8 @@ export default function Projects() {
 }
 
 const Wrapper = styled.section`
-	height: 500px;
-	padding: 100px 0;
-	padding-bottom: 100px;
-	/* width: 50%; */
+	margin-top: 40px;
+	margin-bottom: 80px;
 	background-color: ${COLORS.light};
 	/* background-color: #914747; */
 	display: flex;
@@ -43,7 +41,7 @@ const Wrapper = styled.section`
 `;
 
 const Heading = styled.div`
-	margin: 40px;
+	padding: 40px;
 	isolation: isolate;
 	align-self: flex-start;
 	/* flex: 1 1 50%; */

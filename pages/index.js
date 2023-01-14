@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import About from '../components/About';
+import Contact from '../components/Contact';
 import Hello from '../components/Hello';
 import Projects from '../components/Projects';
 
@@ -13,6 +14,7 @@ export default function Home() {
 			<Hello />
 			<About />
 			<Projects />
+			<Contact />
 		</>
 	);
 }

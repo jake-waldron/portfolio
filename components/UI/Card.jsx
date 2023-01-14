@@ -15,10 +15,7 @@ export default function Card(props) {
 
 const StyledCard = styled.div`
 	max-width: 350px;
-	/* width: auto; */
-	/* height: auto; */
-	/* background-color: white; */
-	padding: 16px;
+	padding: 16px 32px;
 	border-radius: 16px;
 	box-shadow: 0 0 28px rgba(0, 0, 0, 0.2);
 	display: flex;
@@ -28,8 +25,6 @@ const StyledCard = styled.div`
 
 	p {
 		justify-self: center;
-		margin: 0 16px;
-		margin-top: 16px;
 	}
 
 	a {
@@ -41,16 +36,20 @@ const StyledCard = styled.div`
 
 	:hover {
 		cursor: pointer;
-		transform: scale(1.1);
+		/* transform: scale(1.05); */
+		transform-origin: center center;
+		transition: transform 0.25s ease-in-out;
 
 		a {
 			text-decoration: underline;
+			/* font-size: 1.25rem; */
 		}
 	}
 `;
 
 const Placeholder = styled.div`
 	background-color: #ccc;
-	width: 200px;
+	width: 100%;
 	height: 100px;
+	margin: 16px 0;
 `;
