@@ -10,11 +10,9 @@ export default function About() {
 }
 
 const AboutSection = styled.section`
-	max-width: 75%;
 	height: 500px;
-	margin: 0 auto;
-	background-color: ${COLORS.light};
-	color: ${COLORS.dark};
+	/* background-color: ${COLORS.light}; */
+	background-color: #914747;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -1,63 +1,115 @@
 import styled from 'styled-components';
-import { COLORS } from '../styles/constants';
+import { COLORS, BREAKPOINTS } from '../styles/constants';
 
 export default function Hello() {
 	return (
-		<HelloSection>
+		<Wrapper>
 			<TextDiv>
 				<h2>Hey there!</h2>
 				<p>I&apos;m Jake.</p>
 				<p>I make things.</p>
 			</TextDiv>
 			<SpacingDiv>
-				<img src="/wave.png" alt="Image of man wearing a mask, smiling and waving" />
+				<img src="/waveWithText.png" alt="Image of man wearing a mask, smiling and waving" id="wave-img" />
 			</SpacingDiv>
-		</HelloSection>
+		</Wrapper>
 	);
 }
 
-const HelloSection = styled.section`
-	max-width: 80%;
-	margin: 0 auto;
-	background-color: ${COLORS.light};
-	color: ${COLORS.dark};
+const Wrapper = styled.section`
+	height: 100vh;
+	/* max-width: 84%;
+	margin: 0 auto; */
+	/* background-color: ${COLORS.light}; */
+	/* color: ${COLORS.dark}; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-	font-size: 2.5rem;
-
-	@media (max-width: 1280px) {
-		font-size: 2rem;
+	@media (max-width: ${BREAKPOINTS.lg}) {
 		flex-direction: column;
+		flex: 1;
+	}
+
+	@media (max-width: ${BREAKPOINTS.sm}) {
+		/* height: 75vh; */
 	}
 `;
 
 const TextDiv = styled.div`
-	width: 50%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	/* flex: 1.5 0 50%; */
+	flex-grow: 2;
+	flex-shrink: 1;
+	flex-basis: 60%;
 
-	@media (max-width: 1280px) {
-		margin: 50px 0;
+	font-size: 3.5rem;
+
+	h2 {
+		font-weight: 600;
+	}
+
+	p {
+		margin-left: 50px;
+		font-weight: 300;
+	}
+
+	@media (max-width: ${BREAKPOINTS.lg}) {
+		margin-top: 150px;
+		align-self: flex-start;
+		/* margin-left: 10%; */
+	}
+
+	@media (max-width: ${BREAKPOINTS.md}) {
+		font-size: 2.5rem;
+		/* margin-left: 0; */
+	}
+
+	@media (max-width: ${BREAKPOINTS.sm}) {
+		@media (max-height: 700px) {
+			font-size: 1.5rem;
+		}
 	}
 `;
 
 const SpacingDiv = styled.div`
-	height: calc(100vh - 100px);
+	/* height: 100vh; */
+	height: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: end;
+	/* flex-shrink: 1; */
+	flex: 1 1 100%;
 
-	@media (max-width: 1280px) {
+	div {
 		height: 100%;
+		position: relative;
 	}
 
 	img {
 		max-width: 100%;
 		/* height: 80vh; */
+	}
+
+	#wave-img {
+		/* position: relative; */
+		z-index: 1;
+	}
+
+	#wave-shadow {
+		position: absolute;
+		z-index: 0;
+	}
+
+	@media (max-width: ${BREAKPOINTS.lg}) {
+		height: auto;
+	}
+
+	@media (max-width: ${BREAKPOINTS.sm}) {
+		flex-shrink: 1;
 	}
 `;
