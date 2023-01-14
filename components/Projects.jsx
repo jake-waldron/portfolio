@@ -1,29 +1,27 @@
 import styled from 'styled-components';
+import { useInView } from 'framer-motion';
 import { COLORS, BREAKPOINTS } from '../styles/constants';
 import Card from './UI/Card';
+import { useRef } from 'react';
 
 export default function Projects() {
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true, amount: 1 });
 	return (
 		<Wrapper id="projects">
-			<Heading>
+			<Heading ref={ref}>
 				<h2>
-					<span className="highlight">Highlighted Projects</span>
+					<span className={isInView ? 'highlight' : ''}>Highlighted Projects</span>
 				</h2>
-				<p className="fade-in">-because who needs to see more tutorials?</p>
+				<p className={isInView ? 'fade-in' : ''}>-because who needs to see more tutorials?</p>
 			</Heading>
 			<ProjectCards>
 				<Card
-					title="Project 1"
-					description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
+					title="Reynolds Advanced Utilities"
+					description="Full-stack app for managing inventory and tracking expiration dates."
 				/>
-				<Card
-					title="Project 2"
-					description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
-				/>
-				<Card
-					title="Project 3"
-					description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
-				/>
+				<Card title="Notion Bookmarklets" description="A clever solution without unnecessary complexity." />
+				<Card title="Maker Monster Mask" description="It's not web development, but it's pretty cool." />
 			</ProjectCards>
 		</Wrapper>
 	);
@@ -56,6 +54,7 @@ const Heading = styled.div`
 		font-weight: 300;
 		font-size: 1.5rem;
 		margin-left: 20px;
+		opacity: 0;
 
 		@media (min-width: ${BREAKPOINTS.md}) {
 			font-size: 2rem;
@@ -84,6 +83,7 @@ const Heading = styled.div`
 		transform: rotate(-0.5deg);
 		animation: fade-in 0.3s ease-in forwards;
 		animation: grow-from-left-wide 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+		animation-delay: 0.5s;
 
 		@media (min-width: ${BREAKPOINTS.md}) {
 			animation: grow-from-left 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
@@ -93,7 +93,7 @@ const Heading = styled.div`
 	.fade-in {
 		opacity: 0;
 		animation: fade-in-shift-right 0.4s ease-in-out forwards;
-		animation-delay: 0.25s;
+		animation-delay: 0.4s;
 	}
 
 	/* ANIMATIONS */
@@ -143,10 +143,10 @@ const ProjectCards = styled.div`
 	flex-direction: row;
 	/* flex-wrap: wrap; */
 	justify-content: space-between;
-	align-items: center;
+	align-items: stretch;
 	gap: 40px;
 	margin: 0 40px;
-	flex: 1 1 50%;
+	/* flex: 1 1 50%; */
 
 	@media (max-width: ${BREAKPOINTS.lg}) {
 		flex-direction: column;

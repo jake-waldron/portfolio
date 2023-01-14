@@ -11,8 +11,8 @@ export default function About() {
 
 const AboutSection = styled.section`
 	height: 500px;
-	/* background-color: ${COLORS.light}; */
-	background-color: #91474783;
+	background-color: ${COLORS.light};
+	/* background-color: #91474783; */
 	display: flex;
 	justify-content: center;
 	align-items: center;

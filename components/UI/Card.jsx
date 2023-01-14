@@ -1,33 +1,41 @@
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export default function Card(props) {
+	function handleClick() {
+		// navigate to props.url
+		console.log('go to project page!');
+	}
+
 	return (
-		<StyledCard>
+		<StyledCard whileHover={{ scale: 1.1 }} onClick={handleClick}>
 			<h3>{props.title}</h3>
 			{props.img ? <img src={props.img} alt={props.imgAlt} /> : <Placeholder />}
 			<p>{props.description}</p>
-			<Link href="/">More Info</Link>
+			<span>More Info</span>
 		</StyledCard>
 	);
 }
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion.button)`
 	max-width: 350px;
 	padding: 16px 32px;
 	border-radius: 16px;
+	border: 0;
 	box-shadow: 0 0 28px rgba(0, 0, 0, 0.2);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	flex: 1 1 0px;
 
 	p {
 		justify-self: center;
 	}
 
-	a {
+	span {
 		text-decoration: none;
 		font-weight: bold;
 		color: inherit;
@@ -37,10 +45,8 @@ const StyledCard = styled.div`
 	:hover {
 		cursor: pointer;
 		/* transform: scale(1.05); */
-		transform-origin: center center;
-		transition: transform 0.25s ease-in-out;
 
-		a {
+		span {
 			text-decoration: underline;
 			/* font-size: 1.25rem; */
 		}

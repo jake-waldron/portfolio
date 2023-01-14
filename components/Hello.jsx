@@ -9,9 +9,9 @@ export default function Hello() {
 				<p>I&apos;m Jake.</p>
 				<p>I make things.</p>
 			</TextDiv>
-			<SpacingDiv>
+			<ImageDiv>
 				<img src="/waveWithText.png" alt="Image of man wearing a mask, smiling and waving" id="wave-img" />
-			</SpacingDiv>
+			</ImageDiv>
 		</Wrapper>
 	);
 }
@@ -75,7 +75,7 @@ const TextDiv = styled.div`
 	}
 `;
 
-const SpacingDiv = styled.div`
+const ImageDiv = styled.div`
 	/* height: 100vh; */
 	height: 100%;
 	display: flex;
@@ -93,6 +93,7 @@ const SpacingDiv = styled.div`
 	img {
 		max-width: 100%;
 		/* height: 80vh; */
+		filter: drop-shadow(10px 10px 10px hsla(0, 0%, 10%, 0.3));
 	}
 
 	#wave-img {
