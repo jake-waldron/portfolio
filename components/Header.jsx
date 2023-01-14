@@ -12,7 +12,7 @@ export default function Header() {
 						<Link href="/">Home</Link>
 					</li>
 					<li>
-						<Link href="/about">About</Link>
+						<a href="#about">About</a>
 					</li>
 					<li>
 						<Link href="/projects">Projects</Link>
@@ -60,6 +60,6 @@ const StyledUl = styled.ul`
 	a:hover {
 		/* text-decoration: underline; */
 		padding-bottom: 4px;
-		border-bottom: 4px solid ${COLORS.light};
+		border-bottom: 4px solid ${COLORS.highlight};
 	}
 `;

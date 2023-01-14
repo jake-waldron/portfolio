@@ -3,7 +3,7 @@ import { COLORS } from '../styles/constants';
 
 export default function About() {
 	return (
-		<AboutSection>
+		<AboutSection id="about">
 			<p>This is where I can talk all about how cool I am.</p>
 		</AboutSection>
 	);
