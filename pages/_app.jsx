@@ -1,10 +1,8 @@
 import Head from 'next/head';
-import styled, { createGlobalStyle } from 'styled-components';
-import Header from '../components/Header';
+import { Analytics } from '@vercel/analytics/react';
+import { createGlobalStyle } from 'styled-components';
 import '../styles/globals.css';
 import { COLORS } from '../styles/constants';
-import { createContext, memo, useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
 
 const GlobalStyle = createGlobalStyle`
 	body {
@@ -24,6 +22,7 @@ export default function App({ Component, pageProps }) {
 			</Head>
 			<GlobalStyle />
 			<Component {...pageProps} />
+			<Analytics />
 		</>
 	);
 }
