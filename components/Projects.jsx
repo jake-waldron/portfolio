@@ -18,10 +18,22 @@ export default function Projects() {
 			<ProjectCards>
 				<Card
 					title="Reynolds Advanced Utilities"
-					description="Full-stack app for managing inventory and tracking expiration dates."
+					description="Full-stack app that took a task from a couple hours to under thirty minutes."
+					img="ram_utilities_thumb.png"
+					slug="ram-utilities"
 				/>
-				<Card title="Notion Bookmarklets" description="A clever solution without unnecessary complexity." />
-				<Card title="Maker Monster Mask" description="It's not web development, but it's pretty cool." />
+				<Card
+					title="Add to Truck Bookmarklets"
+					description="An exercise in reducing complexity."
+					img="/add_to_truck_thumb.png"
+					slug="bookmarklets"
+				/>
+				<Card
+					title="Maker Monster Mask"
+					description="It's not web development, but it's pretty cool."
+					img="mask_thumb.png"
+					slug="maker-monster-mask"
+				/>
 			</ProjectCards>
 		</Wrapper>
 	);
