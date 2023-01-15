@@ -6,7 +6,7 @@ export default function Bookmarklets() {
 	return (
 		<Layout>
 			<ProjectPageWrapper>
-				<h2>This is the Add to Truck Bookmarks page!</h2>
+				<h1>This is the Add to Truck Bookmarks page!</h1>
 			</ProjectPageWrapper>
 		</Layout>
 	);

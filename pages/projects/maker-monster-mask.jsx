@@ -6,7 +6,7 @@ export default function Mask() {
 	return (
 		<Layout>
 			<ProjectPageWrapper>
-				<h2>This is the Maker Monster Mask page!</h2>
+				<h1>This is the Maker Monster Mask page!</h1>
 			</ProjectPageWrapper>
 		</Layout>
 	);
