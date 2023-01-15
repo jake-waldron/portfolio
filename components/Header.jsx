@@ -6,7 +6,9 @@ export default function Header() {
 	return (
 		<header>
 			<StyledNav>
-				<h2>Jake Waldron</h2>
+				<h2>
+					<Link href="/">Jake Waldron</Link>
+				</h2>
 				<ul>
 					{/* <li>
 						<Link href="/">Home</Link>
@@ -28,8 +30,6 @@ export default function Header() {
 
 const StyledNav = styled.nav`
 	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100px;
 	background-color: ${COLORS.dark};
@@ -46,6 +46,11 @@ const StyledNav = styled.nav`
 		font-weight: 600;
 		/* margin-left: 100px; */
 		margin-left: 8%;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
 
 		@media (max-width: ${BREAKPOINTS.lg}) {
 			font-size: 1.75rem;

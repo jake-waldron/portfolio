@@ -18,10 +18,6 @@ export default function Hello() {
 
 const Wrapper = styled.section`
 	height: 100vh;
-	/* max-width: 84%;
-	margin: 0 auto; */
-	/* background-color: ${COLORS.light}; */
-	/* color: ${COLORS.dark}; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
