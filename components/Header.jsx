@@ -29,7 +29,7 @@ export default function Header() {
 }
 
 const StyledNav = styled.nav`
-	position: absolute;
+	/* position: absolute; */
 	width: 100%;
 	height: 100px;
 	background-color: ${COLORS.dark};

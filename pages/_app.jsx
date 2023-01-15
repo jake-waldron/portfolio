@@ -21,16 +21,7 @@ export default function App({ Component, pageProps }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<GlobalStyle />
-			<Header />
-			<BodyWrapper>
-				<Component {...pageProps} />
-			</BodyWrapper>
+			<Component {...pageProps} />
 		</>
 	);
 }
-
-const BodyWrapper = styled.main`
-	min-height: 100%;
-	max-width: 84%;
-	margin: 0 auto;
-`;

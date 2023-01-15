@@ -17,7 +17,8 @@ export default function Hello() {
 }
 
 const Wrapper = styled.section`
-	height: 100vh;
+	height: calc(100vh - 100px);
+	/* height: 100vh; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -54,7 +55,7 @@ const TextDiv = styled.div`
 	}
 
 	@media (max-width: ${BREAKPOINTS.lg}) {
-		margin-top: 150px;
+		/* margin-top: 150px; */
 		align-self: flex-start;
 		/* margin-left: 10%; */
 	}
@@ -83,6 +84,7 @@ const ImageDiv = styled.div`
 
 	div {
 		height: 100%;
+		max-width: 100%;
 		position: relative;
 	}
 
@@ -90,16 +92,6 @@ const ImageDiv = styled.div`
 		max-width: 100%;
 		/* height: 80vh; */
 		filter: drop-shadow(10px 10px 10px hsla(0, 0%, 10%, 0.3));
-	}
-
-	#wave-img {
-		/* position: relative; */
-		z-index: 1;
-	}
-
-	#wave-shadow {
-		position: absolute;
-		z-index: 0;
 	}
 
 	@media (max-width: ${BREAKPOINTS.lg}) {
