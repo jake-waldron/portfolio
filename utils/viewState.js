@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const useStore = create((set, get) => ({
+const useStore = create((set) => ({
 	highlightViewCount: 0,
 	increaseHighlightViewCount: () => set((state) => ({ highlightViewCount: state.highlightViewCount + 1 })),
 }));

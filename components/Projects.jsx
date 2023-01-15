@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { useInView } from 'framer-motion';
 import { COLORS, BREAKPOINTS } from '../styles/constants';
 import Card from './UI/Card';
-import { memo, useCallback, useContext, useEffect, useRef } from 'react';
-import { Context } from '../pages/_app';
+import { useCallback, useEffect, useRef } from 'react';
 import useStore from '../utils/viewState';
 
 export default function Projects() {
