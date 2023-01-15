@@ -2,18 +2,25 @@ import styled from 'styled-components';
 import { useInView } from 'framer-motion';
 import { COLORS, BREAKPOINTS } from '../styles/constants';
 import Card from './UI/Card';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { Context } from '../pages/_app';
+import useStore from '../utils/viewState';
 
 export default function Projects() {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 1 });
+	// const { highlightRef, highlightViewed } = useContext(Context);
+	const { highlightViewed, setHighlightViewed } = useStore((state) => state);
+
+	if (isInView && !highlightViewed) setHighlightViewed();
+
 	return (
 		<Wrapper id="projects">
 			<Heading ref={ref}>
 				<h2>
-					<span className={isInView ? 'highlight' : ''}>Highlighted Projects</span>
+					<span className={highlightViewed ? 'highlight' : ''}>Highlighted Projects</span>
 				</h2>
-				<p className={isInView ? 'fade-in' : ''}>-because who needs to see more tutorials?</p>
+				<p className={highlightViewed ? 'fade-in' : ''}>-because who needs to see more tutorials?</p>
 			</Heading>
 			<ProjectCards>
 				<Card
