@@ -14,23 +14,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function App({ Component, pageProps }) {
-	// const highlightRef = useRef(null);
-	// const [highlightViewed, setHighlightViewed] = useState(false);
-	// const highlightIsInView = useInView(highlightRef, { once: true, amount: 1 });
-
-	// // useEffect(() => {
-	// // 	if (highlightIsInView && !highlightViewed) {
-	// // 		setHighlightViewed(true);
-	// // 	}
-	// // }, [highlightIsInView, highlightViewed]);
-
-	// // setHighlightIsInView(useInView(highlightRef, { once: true, amount: 1 }));
-
-	// const contextValues = {
-	// 	highlightRef,
-	// 	highlightViewed,
-	// };
-
 	return (
 		<>
 			<Head>
