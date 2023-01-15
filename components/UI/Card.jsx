@@ -33,6 +33,7 @@ const StyledCard = styled(motion.button)`
 	justify-content: center;
 	align-items: center;
 	flex: 1 1 0px;
+	color: inherit;
 
 	img {
 		/* width: 100%; */
