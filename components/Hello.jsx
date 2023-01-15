@@ -5,7 +5,7 @@ export default function Hello() {
 	return (
 		<Wrapper>
 			<TextDiv>
-				<h2>Hey there!</h2>
+				<h1>Hey there!</h1>
 				<p>I&apos;m Jake.</p>
 				<p>I make things.</p>
 			</TextDiv>
@@ -45,7 +45,7 @@ const TextDiv = styled.div`
 
 	font-size: 3.5rem;
 
-	h2 {
+	h1 {
 		font-weight: 600;
 	}
 
