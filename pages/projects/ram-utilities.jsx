@@ -53,7 +53,7 @@ export default function RamUtilities() {
 					every product. When I scan a barcode the app will fetch the product information from the database and send it
 					back, along with how old the product is and whether it’s expired or not. Then I can filter the list of
 					products into not only a list of everything that’s already expired, but also a list of everything that will
-					expire before the next time I have to do it—and print all the information out as a handy PDF.{' '}
+					expire before the next time I have to do it—and print all the information out as a handy PDF.
 					<strong>All in about ten minutes.</strong>
 				</p>
 				<p>
