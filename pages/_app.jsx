@@ -13,25 +13,23 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-export const Context = createContext();
-
 export default function App({ Component, pageProps }) {
-	const highlightRef = useRef(null);
-	const [highlightViewed, setHighlightViewed] = useState(false);
-	const highlightIsInView = useInView(highlightRef, { once: true, amount: 1 });
+	// const highlightRef = useRef(null);
+	// const [highlightViewed, setHighlightViewed] = useState(false);
+	// const highlightIsInView = useInView(highlightRef, { once: true, amount: 1 });
 
-	useEffect(() => {
-		if (highlightIsInView && !highlightViewed) {
-			setHighlightViewed(true);
-		}
-	}, [highlightIsInView, highlightViewed]);
+	// // useEffect(() => {
+	// // 	if (highlightIsInView && !highlightViewed) {
+	// // 		setHighlightViewed(true);
+	// // 	}
+	// // }, [highlightIsInView, highlightViewed]);
 
-	// setHighlightIsInView(useInView(highlightRef, { once: true, amount: 1 }));
+	// // setHighlightIsInView(useInView(highlightRef, { once: true, amount: 1 }));
 
-	const contextValues = {
-		highlightRef,
-		highlightViewed,
-	};
+	// const contextValues = {
+	// 	highlightRef,
+	// 	highlightViewed,
+	// };
 
 	return (
 		<>
@@ -42,9 +40,7 @@ export default function App({ Component, pageProps }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<GlobalStyle />
-			<Context.Provider value={contextValues}>
-				<Component {...pageProps} />
-			</Context.Provider>
+			<Component {...pageProps} />
 		</>
 	);
 }

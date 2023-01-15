@@ -2,25 +2,44 @@ import styled from 'styled-components';
 import { useInView } from 'framer-motion';
 import { COLORS, BREAKPOINTS } from '../styles/constants';
 import Card from './UI/Card';
-import { useContext, useRef } from 'react';
+import { memo, useCallback, useContext, useEffect, useRef } from 'react';
 import { Context } from '../pages/_app';
 import useStore from '../utils/viewState';
 
 export default function Projects() {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 1 });
-	// const { highlightRef, highlightViewed } = useContext(Context);
-	const { highlightViewed, setHighlightViewed } = useStore((state) => state);
+	const highlightViewCount = useStore((state) => state.highlightViewCount);
+	const increaseHighlightViewCount = useCallback(
+		useStore((state) => state.increaseHighlightViewCount),
+		[]
+	);
 
-	if (isInView && !highlightViewed) setHighlightViewed();
+	useEffect(() => {
+		if (isInView) {
+			increaseHighlightViewCount();
+		}
+	}, [isInView, increaseHighlightViewCount]);
+
+	function showHighlight(baseName) {
+		if (highlightViewCount < 1) {
+			return '';
+		}
+		if (highlightViewCount === 1) {
+			return `${baseName}-animate`;
+		}
+		if (highlightViewCount > 1) {
+			return `${baseName}`;
+		}
+	}
 
 	return (
 		<Wrapper id="projects">
 			<Heading ref={ref}>
 				<h2>
-					<span className={highlightViewed ? 'highlight' : ''}>Highlighted Projects</span>
+					<span className={showHighlight('highlight')}>Highlighted Projects</span>
 				</h2>
-				<p className={highlightViewed ? 'fade-in' : ''}>-because who needs to see more tutorials?</p>
+				<p className={showHighlight('fade-in')}>-because who needs to see more tutorials?</p>
 			</Heading>
 			<ProjectCards>
 				<Card
@@ -82,7 +101,8 @@ const Heading = styled.div`
 		}
 	}
 
-	.highlight {
+	.highlight,
+	.highlight-animate {
 		position: relative;
 	}
 
@@ -101,6 +121,30 @@ const Heading = styled.div`
 			hsla(124, 100%, 74%, 0.1)
 		);
 		transform: rotate(-0.5deg);
+		opacity: 1;
+		width: calc(100% + 50px);
+
+		@media (min-width: ${BREAKPOINTS.md}) {
+			width: calc(100% + 50px);
+		}
+	}
+
+	.highlight-animate::before {
+		position: absolute;
+		content: '';
+		height: 100%;
+		left: -25px;
+		top: -2px;
+		z-index: -1;
+		border-radius: 1em 0.51em 1em 0.2em;
+		background-image: linear-gradient(
+			-120deg,
+			hsl(75, 75%, 74%, 0.4),
+			hsla(124, 100%, 74%, 0.7) 95%,
+			hsla(124, 100%, 74%, 0.1)
+		);
+		transform: rotate(-0.5deg);
+
 		animation: fade-in 0.3s ease-in forwards;
 		animation: grow-from-left-wide 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 		animation-delay: 0.5s;
@@ -111,6 +155,10 @@ const Heading = styled.div`
 	}
 
 	.fade-in {
+		opacity: 1;
+	}
+
+	.fade-in-animate {
 		opacity: 0;
 		animation: fade-in-shift-right 0.4s ease-in-out forwards;
 		animation-delay: 0.4s;
