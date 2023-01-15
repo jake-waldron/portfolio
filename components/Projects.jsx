@@ -10,10 +10,7 @@ export default function Projects() {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 1 });
 	const highlightViewCount = useStore((state) => state.highlightViewCount);
-	const increaseHighlightViewCount = useCallback(
-		useStore((state) => state.increaseHighlightViewCount),
-		[]
-	);
+	const increaseHighlightViewCount = useStore(useCallback((state) => state.increaseHighlightViewCount, []));
 
 	useEffect(() => {
 		if (isInView) {
