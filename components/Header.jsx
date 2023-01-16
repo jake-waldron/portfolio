@@ -4,6 +4,35 @@ import styled from 'styled-components';
 import { COLORS, BREAKPOINTS } from '../styles/constants';
 import { GrMenu, GrClose } from 'react-icons/gr';
 
+export default function Header() {
+	const [open, setOpen] = useState(false);
+
+	function toggleMenu() {
+		setOpen(!open);
+		console.log('toggling menu');
+	}
+
+	return (
+		<header>
+			<StyledNav>
+				<h2>
+					<Link
+						href="/"
+						onClick={() => {
+							if (open) {
+								toggleMenu();
+							}
+						}}>
+						Jake Waldron
+					</Link>
+				</h2>
+				<RegularMenu />
+				<MobileMenu open={open} toggleMenu={toggleMenu} />
+			</StyledNav>
+		</header>
+	);
+}
+
 function Hamburger(props) {
 	return (
 		<div onClick={props.onClick}>
@@ -122,27 +151,6 @@ const MobileControls = styled.div`
 		display: none;
 	}
 `;
-
-export default function Header() {
-	const [open, setOpen] = useState(false);
-
-	function toggleMenu() {
-		setOpen(!open);
-		console.log('toggling menu');
-	}
-
-	return (
-		<header>
-			<StyledNav>
-				<h2>
-					<Link href="/">Jake Waldron</Link>
-				</h2>
-				<RegularMenu />
-				<MobileMenu open={open} toggleMenu={toggleMenu} />
-			</StyledNav>
-		</header>
-	);
-}
 
 const StyledNav = styled.nav`
 	/* position: absolute; */
