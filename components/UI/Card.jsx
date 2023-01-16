@@ -17,7 +17,12 @@ export default function Card(props) {
 			<h3>{props.title}</h3>
 			{props.img ? <img src={props.img} alt={props.imgAlt} /> : <Placeholder />}
 			<p>{props.description}</p>
-			<span>More Info</span>
+
+			<p>
+				<span className="tech">Tech used: </span>
+				{props.tech.join(', ')}
+			</p>
+			<span className="info">More Info</span>
 		</StyledCard>
 	);
 }
@@ -30,7 +35,7 @@ const StyledCard = styled(motion.button)`
 	box-shadow: 0 0 28px rgba(0, 0, 0, 0.2);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	flex: 1 1 0px;
 	color: inherit;
@@ -45,8 +50,19 @@ const StyledCard = styled(motion.button)`
 		border: 1px solid #000;
 	}
 
+	h4 {
+		margin-top: 16px;
+		align-self: flex-start;
+		/* display: inline; */
+	}
+
 	p {
+		display: inline;
 		justify-self: center;
+	}
+
+	p:last-of-type {
+		margin-top: 16px;
 	}
 
 	span {
@@ -56,11 +72,15 @@ const StyledCard = styled(motion.button)`
 		margin-top: 16px;
 	}
 
+	span.info {
+		font-size: 1.25em;
+	}
+
 	:hover {
 		cursor: pointer;
 		/* transform: scale(1.05); */
 
-		span {
+		span.info {
 			text-decoration: underline;
 			/* font-size: 1.25rem; */
 		}
