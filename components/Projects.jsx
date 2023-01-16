@@ -5,6 +5,33 @@ import Card from './UI/Card';
 import { useCallback, useEffect, useRef } from 'react';
 import useStore from '../utils/viewState';
 
+const projectArray = [
+	{
+		id: 1,
+		title: 'Reynolds Advanced Utilities',
+		description: 'Full-stack app that took a task from a couple hours to under thirty minutes.',
+		tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Docker'],
+		img: 'ram_utilities_thumb.png',
+		slug: 'ram-utilities',
+	},
+	{
+		id: 2,
+		title: 'Add to Truck Bookmarklets',
+		description: 'An exercise in reducing complexity.',
+		tech: ['JavaScript', 'AWS Lambda', 'AWS API Gateway'],
+		img: '/add_to_truck_thumb.png',
+		slug: 'bookmarklets',
+	},
+	{
+		id: 3,
+		title: 'Maker Monster Mask',
+		description: "It's not web development, but it's pretty cool.",
+		tech: ['Arduino', 'Bluetooth', 'C++', 'Fusion 360', '3D Printing'],
+		img: 'mask_thumb.png',
+		slug: 'maker-monster-mask',
+	},
+];
+
 export default function Projects() {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 1 });
@@ -38,24 +65,16 @@ export default function Projects() {
 				<p className={showHighlight('fade-in')}>-because who needs to see more tutorials?</p>
 			</Heading>
 			<ProjectCards>
-				<Card
-					title="Reynolds Advanced Utilities"
-					description="Full-stack app that took a task from a couple hours to under thirty minutes."
-					img="ram_utilities_thumb.png"
-					slug="ram-utilities"
-				/>
-				<Card
-					title="Add to Truck Bookmarklets"
-					description="An exercise in reducing complexity."
-					img="/add_to_truck_thumb.png"
-					slug="bookmarklets"
-				/>
-				<Card
-					title="Maker Monster Mask"
-					description="It's not web development, but it's pretty cool."
-					img="mask_thumb.png"
-					slug="maker-monster-mask"
-				/>
+				{projectArray.map((project) => (
+					<Card
+						key={project.id}
+						title={project.title}
+						description={project.description}
+						tech={project.tech}
+						img={project.img}
+						slug={project.slug}
+					/>
+				))}
 			</ProjectCards>
 		</Wrapper>
 	);
