@@ -28,7 +28,7 @@ export default function Card(props) {
 }
 
 const StyledCard = styled(motion.button)`
-	max-width: 350px;
+	/* max-width: 350px; */
 	padding: 16px 32px;
 	border-radius: 16px;
 	border: 0;

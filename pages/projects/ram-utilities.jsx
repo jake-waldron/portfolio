@@ -144,7 +144,7 @@ const Code = styled.code`
 `;
 
 const InfoCard = styled.div`
-	width: 80%;
+	width: 90%;
 	align-self: center;
 	background-color: hsl(0, 0%, 98%);
 	padding: 1rem;
@@ -247,12 +247,14 @@ const Wrapper = styled.article`
 	min-height: 100%;
 	padding-top: 4rem;
 	margin: 0 auto;
-	width: 70%;
+	width: 90%;
 	display: flex;
 	flex-direction: column;
 	/* justify-content: center; */
 	/* align-items: center; */
 	/* flex: 1 1 100%; */
+
+	font-size: 1.25rem;
 
 	h1 {
 		text-align: center;
@@ -264,7 +266,7 @@ const Wrapper = styled.article`
 		}
 
 		@media (max-width: ${BREAKPOINTS.sm}) {
-			font-size: 1.75rem;
+			/* font-size: 1.75rem; */
 		}
 	}
 

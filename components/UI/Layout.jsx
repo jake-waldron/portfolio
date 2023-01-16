@@ -12,6 +12,6 @@ export default function Layout({ children }) {
 
 const BodyWrapper = styled.main`
 	min-height: 100%;
-	max-width: 84%;
+	max-width: 90%;
 	margin: 0 auto;
 `;

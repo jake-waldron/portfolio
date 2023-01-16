@@ -67,7 +67,7 @@ const TextDiv = styled.div`
 
 	@media (max-width: ${BREAKPOINTS.sm}) {
 		@media (max-height: 700px) {
-			font-size: 1.5rem;
+			/* font-size: 1.5rem; */
 		}
 	}
 `;

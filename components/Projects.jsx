@@ -92,10 +92,14 @@ const Wrapper = styled.section`
 `;
 
 const Heading = styled.div`
-	padding: 40px;
+	padding: 16px;
 	isolation: isolate;
 	align-self: flex-start;
 	/* flex: 1 1 50%; */
+
+	@media (min-width: ${BREAKPOINTS.md}) {
+		padding: 40px;
+	}
 
 	h2 {
 		font-weight: bold;
