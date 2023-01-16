@@ -225,7 +225,7 @@ const Heading = styled.div`
 `;
 
 const ProjectCards = styled.div`
-	align-self: center;
+	/* align-self: center; */
 	display: flex;
 	flex-direction: row;
 	/* flex-wrap: wrap; */

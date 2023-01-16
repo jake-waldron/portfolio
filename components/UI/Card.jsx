@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { COLORS, BREAKPOINTS } from '../../styles/constants';
 
 export default function Card(props) {
 	const router = useRouter();
