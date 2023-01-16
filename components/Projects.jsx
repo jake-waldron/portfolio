@@ -235,7 +235,14 @@ const ProjectCards = styled.div`
 	margin: 0 40px;
 	/* flex: 1 1 50%; */
 
+	@media (min-width: ${BREAKPOINTS.lg}) {
+		// uncomment this if you decide to go with a column in wide view
+		/* width: 75%;
+		flex-direction: column; */
+	}
+
 	@media (max-width: ${BREAKPOINTS.lg}) {
+		/* width: 100%; */
 		flex-direction: column;
 	}
 `;
