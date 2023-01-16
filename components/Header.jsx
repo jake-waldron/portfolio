@@ -53,10 +53,10 @@ function RegularMenu() {
 	return (
 		<RegList>
 			<li>
-				<Link href="/#about">About</Link>
+				<Link href="/#projects">Projects</Link>
 			</li>
 			<li>
-				<Link href="/#projects">Projects</Link>
+				<Link href="/#about">About</Link>
 			</li>
 			<li>
 				<Link href="/#contact">Contact</Link>
@@ -73,13 +73,13 @@ function MobileMenu({ open, toggleMenu }) {
 			{open && (
 				<ul>
 					<li>
-						<Link href="/#about" onClick={toggleMenu}>
-							About
+						<Link href="/#projects" onClick={toggleMenu}>
+							Projects
 						</Link>
 					</li>
 					<li>
-						<Link href="/#projects" onClick={toggleMenu}>
-							Projects
+						<Link href="/#about" onClick={toggleMenu}>
+							About
 						</Link>
 					</li>
 					<li>

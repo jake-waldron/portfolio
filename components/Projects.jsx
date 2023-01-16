@@ -89,6 +89,10 @@ const Wrapper = styled.section`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (max-width: ${BREAKPOINTS.sm}) {
+		padding-top: 40px;
+	}
 `;
 
 const Heading = styled.div`
