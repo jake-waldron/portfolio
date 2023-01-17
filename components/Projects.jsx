@@ -18,7 +18,7 @@ const projectArray = [
 		id: 2,
 		title: 'Add to Truck Bookmarklets',
 		description: 'An exercise in reducing complexity.',
-		tech: ['JavaScript', 'AWS Lambda', 'AWS API Gateway'],
+		tech: ['JavaScript', 'Notion API', 'AWS Lambda', 'AWS API Gateway'],
 		img: '/add_to_truck_thumb.png',
 		slug: 'bookmarklets',
 	},
@@ -145,7 +145,7 @@ const Heading = styled.div`
 		);
 		transform: rotate(-0.5deg);
 		opacity: 1;
-		width: calc(100% + 50px);
+		width: calc(100% + 130px);
 
 		@media (min-width: ${BREAKPOINTS.md}) {
 			width: calc(100% + 50px);
