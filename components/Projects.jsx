@@ -4,6 +4,7 @@ import { COLORS, BREAKPOINTS } from '../styles/constants';
 import Card from './UI/Card';
 import { useCallback, useEffect, useRef } from 'react';
 import useStore from '../utils/viewState';
+import { showAnimation } from '../utils/showAnimation';
 
 const projectArray = [
 	{
@@ -35,36 +36,36 @@ const projectArray = [
 export default function Projects() {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 0.5 });
-	const highlightViewCount = useStore((state) => state.highlightViewCount);
-	const increaseHighlightViewCount = useStore(useCallback((state) => state.increaseHighlightViewCount, []));
+	const projectSectionViewCount = useStore((state) => state.projectSectionViewCount);
+	const increaseProjectSectionViewCount = useStore(useCallback((state) => state.increaseProjectSectionViewCount, []));
 
 	useEffect(() => {
 		if (isInView) {
-			increaseHighlightViewCount();
+			increaseProjectSectionViewCount();
 		}
-	}, [isInView, increaseHighlightViewCount]);
+	}, [isInView, increaseProjectSectionViewCount]);
 
-	function showAnimation(baseName) {
-		if (highlightViewCount < 1) {
-			return '';
-		}
-		if (highlightViewCount === 1) {
-			return `${baseName}-animate`;
-		}
-		if (highlightViewCount > 1) {
-			return `${baseName}`;
-		}
-	}
+	// function showAnimation(baseName) {
+	// 	if (projectSectionViewCount < 1) {
+	// 		return '';
+	// 	}
+	// 	if (projectSectionViewCount === 1) {
+	// 		return `${baseName}-animate`;
+	// 	}
+	// 	if (projectSectionViewCount > 1) {
+	// 		return `${baseName}`;
+	// 	}
+	// }
 
 	return (
-		<Wrapper id="projects" className={showAnimation('card-fade-in')}>
+		<Wrapper id="projects" className={showAnimation(projectSectionViewCount, 'card-fade-in')}>
 			<Heading ref={ref}>
 				<h2>
-					<span className={showAnimation('highlight')}>Highlighted Projects</span>
+					<span className={showAnimation(projectSectionViewCount, 'highlight')}>Highlighted Projects</span>
 				</h2>
-				<p className={showAnimation('fade-in')}>-because who needs to see more tutorials?</p>
+				<p className={showAnimation(projectSectionViewCount, 'fade-in')}>-because who needs to see more tutorials?</p>
 			</Heading>
-			<ProjectCards className={showAnimation('cards-fade-in')}>
+			<ProjectCards className={showAnimation(projectSectionViewCount, 'cards-fade-in')}>
 				{projectArray.map((project) => (
 					<Card
 						key={project.id}
