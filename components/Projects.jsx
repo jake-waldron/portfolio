@@ -34,7 +34,7 @@ const projectArray = [
 
 export default function Projects() {
 	const ref = useRef(null);
-	const isInView = useInView(ref, { once: true, amount: 1 });
+	const isInView = useInView(ref, { once: true, amount: 0.5 });
 	const highlightViewCount = useStore((state) => state.highlightViewCount);
 	const increaseHighlightViewCount = useStore(useCallback((state) => state.increaseHighlightViewCount, []));
 
@@ -44,7 +44,7 @@ export default function Projects() {
 		}
 	}, [isInView, increaseHighlightViewCount]);
 
-	function showHighlight(baseName) {
+	function showAnimation(baseName) {
 		if (highlightViewCount < 1) {
 			return '';
 		}
@@ -57,14 +57,14 @@ export default function Projects() {
 	}
 
 	return (
-		<Wrapper id="projects">
+		<Wrapper id="projects" className={showAnimation('card-fade-in')}>
 			<Heading ref={ref}>
 				<h2>
-					<span className={showHighlight('highlight')}>Highlighted Projects</span>
+					<span className={showAnimation('highlight')}>Highlighted Projects</span>
 				</h2>
-				<p className={showHighlight('fade-in')}>-because who needs to see more tutorials?</p>
+				<p className={showAnimation('fade-in')}>-because who needs to see more tutorials?</p>
 			</Heading>
-			<ProjectCards>
+			<ProjectCards className={showAnimation('cards-fade-in')}>
 				{projectArray.map((project) => (
 					<Card
 						key={project.id}
@@ -89,6 +89,17 @@ const Wrapper = styled.section`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	opacity: 0;
+
+	&.card-fade-in {
+		opacity: 1;
+	}
+
+	&.card-fade-in-animate {
+		opacity: 0;
+		animation: fade-in-shift-up 0.3s ease-in-out forwards;
+		animation-delay: 0.1s;
+	}
 
 	@media (max-width: ${BREAKPOINTS.sm}) {
 		padding-top: 40px;
@@ -128,6 +139,10 @@ const Heading = styled.div`
 	.highlight-animate {
 		position: relative;
 	}
+	/* 
+	.highlight-animate {
+		animation-delay: 2s;
+	} */
 
 	.highlight::before {
 		position: absolute;
@@ -170,10 +185,11 @@ const Heading = styled.div`
 
 		animation: fade-in 0.3s ease-in forwards;
 		animation: grow-from-left-wide 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
-		animation-delay: 0.5s;
+		animation-delay: 0.4s;
 
 		@media (min-width: ${BREAKPOINTS.md}) {
 			animation: grow-from-left 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+			animation-delay: 0.4s;
 		}
 	}
 
@@ -183,8 +199,8 @@ const Heading = styled.div`
 
 	.fade-in-animate {
 		opacity: 0;
-		animation: fade-in-shift-right 0.4s ease-in-out forwards;
-		animation-delay: 0.4s;
+		animation: fade-in-shift-right 0.5s ease-in-out forwards;
+		animation-delay: 0.5s;
 	}
 
 	/* ANIMATIONS */
@@ -238,6 +254,16 @@ const ProjectCards = styled.div`
 	gap: 40px;
 	margin: 0 40px;
 	/* flex: 1 1 50%; */
+
+	/* &.cards-fade-in {
+		opacity: 1;
+	}
+
+	&.cards-fade-in-animate {
+		opacity: 0;
+		animation: fade-in-shift-up 0.3s ease-in-out forwards;
+		animation-delay: 0.5s;
+	} */
 
 	@media (min-width: ${BREAKPOINTS.lg}) {
 		// uncomment this if you decide to go with a column in wide view
