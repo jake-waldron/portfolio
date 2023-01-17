@@ -1,8 +1,11 @@
 import { create } from 'zustand';
 
 const useStore = create((set) => ({
-	highlightViewCount: 0,
-	increaseHighlightViewCount: () => set((state) => ({ highlightViewCount: state.highlightViewCount + 1 })),
+	projectSectionViewCount: 0,
+	increaseProjectSectionViewCount: () =>
+		set((state) => ({ projectSectionViewCount: state.projectSectionViewCount + 1 })),
+	helloSectionViewCount: 0,
+	increaseHelloSectionViewCount: () => set((state) => ({ helloSectionViewCount: state.helloSectionViewCount + 1 })),
 }));
 
 export default useStore;

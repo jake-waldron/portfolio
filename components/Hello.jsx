@@ -1,15 +1,30 @@
 import styled from 'styled-components';
+import useStore from '../utils/viewState';
 import { COLORS, BREAKPOINTS } from '../styles/constants';
+import { useCallback, useEffect, useRef } from 'react';
+import { showAnimation } from '../utils/showAnimation';
+import { useInView } from 'framer-motion';
 
 export default function Hello() {
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true, amount: 0.5 });
+	const helloSectionViewCount = useStore((state) => state.helloSectionViewCount);
+	const increaseHelloSectionViewCount = useStore(useCallback((state) => state.increaseHelloSectionViewCount, []));
+
+	useEffect(() => {
+		if (isInView) {
+			increaseHelloSectionViewCount();
+		}
+	}, [isInView, increaseHelloSectionViewCount]);
+
 	return (
-		<Wrapper>
-			<TextDiv>
+		<Wrapper ref={ref}>
+			<TextDiv className={showAnimation(helloSectionViewCount, 'fade-in')}>
 				<h1>Hey there!</h1>
 				<p>I&apos;m Jake.</p>
 				<p>I make things.</p>
 			</TextDiv>
-			<ImageDiv>
+			<ImageDiv className={showAnimation(helloSectionViewCount, 'fade-in')}>
 				<img src="/waveWithText.png" alt="Image of man wearing a mask, smiling and waving" id="wave-img" />
 			</ImageDiv>
 		</Wrapper>
@@ -23,6 +38,17 @@ const Wrapper = styled.section`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	/* @keyframes fade-in-shift-up {
+		from {
+			opacity: 0;
+			transform: translateY(15px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	} */
 
 	@media (max-width: ${BREAKPOINTS.lg}) {
 		flex-direction: column;
@@ -45,6 +71,22 @@ const TextDiv = styled.div`
 	flex-basis: 60%;
 
 	font-size: 3.5rem;
+
+	/* opacity: 0;
+	animation: fade-in-shift-up 0.4s ease-in forwards;
+	animation-delay: 0.1s; */
+
+	opacity: 0;
+
+	&.fade-in {
+		opacity: 1;
+	}
+
+	&.fade-in-animate {
+		opacity: 0;
+		animation: fade-in-shift-up 0.3s ease-in-out forwards;
+		animation-delay: 0.1s;
+	}
 
 	h1 {
 		font-weight: 600;
@@ -81,6 +123,17 @@ const ImageDiv = styled.div`
 	justify-content: end;
 	/* flex-shrink: 1; */
 	flex: 1 2 100%;
+	opacity: 0;
+
+	&.fade-in {
+		opacity: 1;
+	}
+
+	&.fade-in-animate {
+		opacity: 0;
+		animation: fade-in-shift-up 0.3s ease-in-out forwards;
+		animation-delay: 0.1s;
+	}
 
 	div {
 		height: 100%;
