@@ -193,7 +193,8 @@ const InfoCard = styled.div`
 
 const Quote = styled.figure`
 	margin: 2rem 0;
-
+	width: 80%;
+	align-self: center;
 	display: flex;
 	flex-direction: column;
 
