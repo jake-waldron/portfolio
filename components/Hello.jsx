@@ -18,7 +18,8 @@ export default function Hello() {
 
 const Wrapper = styled.section`
 	height: calc(100vh - 100px);
-	/* height: 100vh; */
+	/* width: 90%; */
+	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -67,20 +68,19 @@ const TextDiv = styled.div`
 
 	@media (max-width: ${BREAKPOINTS.sm}) {
 		@media (max-height: 700px) {
-			/* font-size: 1.5rem; */
+			font-size: 2rem;
 		}
 	}
 `;
 
 const ImageDiv = styled.div`
-	/* height: 100vh; */
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: end;
 	/* flex-shrink: 1; */
-	flex: 1 1 100%;
+	flex: 1 2 100%;
 
 	div {
 		height: 100%;
@@ -90,7 +90,7 @@ const ImageDiv = styled.div`
 
 	img {
 		max-width: 100%;
-		/* height: 80vh; */
+		max-height: 80vh;
 		filter: drop-shadow(10px 10px 10px hsla(0, 0%, 10%, 0.3));
 	}
 
