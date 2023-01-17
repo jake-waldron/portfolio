@@ -35,6 +35,14 @@ export default function RamUtilities() {
 		<Layout>
 			<Wrapper>
 				<h1>Reynolds Advanced Utilities</h1>
+				<h2>Summary:</h2>
+				<p>
+					Full-stack app built with a React front-end connected to a Node.js backend and PostgreSQL
+					database—containerized with Docker. When user scans product barcode, the request gets sent to the backend
+					where it gets the product information from the database, calculates the product&apos;s age, and responds with
+					the product information and expiration status. Allows for easy finding and tracking of expired and soon-to-be
+					expired products. Creates PDFs and spreadsheets of information to send to headquarters for return process.
+				</p>
 				<h2>Problem:</h2>
 				<p>
 					<strong>Every few months I would spend a couple hours walking around the warehouse,</strong> checking the
@@ -247,6 +255,7 @@ const Quote = styled.figure`
 const Wrapper = styled.article`
 	min-height: 100%;
 	padding-top: 4rem;
+	padding-bottom: 200px;
 	margin: 0 auto;
 	width: 90%;
 	display: flex;
@@ -273,12 +282,9 @@ const Wrapper = styled.article`
 
 	h2 {
 		font-size: 2.5rem;
-		/* margin-bottom: 1rem; */
 		margin-left: -5rem;
-		/* margin-bottom: 1rem; */
 
 		transform: translateY(-1rem) rotate(-3deg);
-		/* transform: rotate(-5deg); */
 
 		@media (max-width: ${BREAKPOINTS.md}) {
 			margin-left: -1.5rem;
