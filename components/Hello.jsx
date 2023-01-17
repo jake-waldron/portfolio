@@ -132,7 +132,7 @@ const ImageDiv = styled.div`
 	&.fade-in-animate {
 		opacity: 0;
 		animation: fade-in-shift-up 0.3s ease-in-out forwards;
-		animation-delay: 0.1s;
+		animation-delay: 0.2s;
 	}
 
 	div {
