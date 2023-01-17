@@ -38,10 +38,11 @@ export default function RamUtilities() {
 				<h2>Summary:</h2>
 				<p>
 					Full-stack app built with a React frontend connected to a Node.js backend and PostgreSQL
-					database—containerized with Docker. When user scans product barcode, the request gets sent to the backend
-					where it gets the product information from the database, calculates the product&apos;s age, and responds with
-					the product information and expiration status. Allows for easy finding and tracking of expired and soon-to-be
-					expired products. Creates PDFs and spreadsheets of information to send to headquarters for return process.
+					database—containerized and deployed with Docker. When user scans product barcode, the request gets sent to the
+					backend where it gets the product information from the database, calculates the product&apos;s age, and
+					responds with the product information and expiration status. Allows for easy finding and tracking of expired
+					and soon-to-be expired products. Creates PDFs and spreadsheets of information to send to headquarters for
+					return process.
 				</p>
 				<h2>Problem:</h2>
 				<p>
