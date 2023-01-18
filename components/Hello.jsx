@@ -123,7 +123,10 @@ const ImageDiv = styled.div`
 	justify-content: end;
 	/* flex-shrink: 1; */
 	flex: 1 2 100%;
-	/* opacity: 0; */
+
+	&.animation-setup {
+		opacity: 0;
+	}
 
 	&.fade-in {
 		opacity: 1;
