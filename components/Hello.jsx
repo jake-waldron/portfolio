@@ -76,7 +76,7 @@ const TextDiv = styled.div`
 	animation: fade-in-shift-up 0.4s ease-in forwards;
 	animation-delay: 0.1s; */
 
-	opacity: 0;
+	/* opacity: 0; */
 
 	&.fade-in {
 		opacity: 1;
@@ -123,7 +123,7 @@ const ImageDiv = styled.div`
 	justify-content: end;
 	/* flex-shrink: 1; */
 	flex: 1 2 100%;
-	opacity: 0;
+	/* opacity: 0; */
 
 	&.fade-in {
 		opacity: 1;
